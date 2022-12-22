@@ -1,0 +1,24 @@
+##State at loss
+SELECT * 
+FROM(SELECT state, 
+            (CASE WHEN SUM (profit)<0 THEN SUM(PROFIT) END)as sum_state_profit 
+     FROM `myproject-anisadwi-22122022.sample_superstore.superstore_data` 
+     GROUP BY state)
+WHERE sum_state_profit IS NOT NULL
+ORDER BY sum_state_profit;
+
+##State at profit
+SELECT * 
+FROM(SELECT state, 
+            (CASE WHEN SUM (profit)>=0 THEN SUM(PROFIT) END)as sum_state_profit 
+     FROM `myproject-anisadwi-22122022.sample_superstore.superstore_data` 
+     GROUP BY state)
+WHERE sum_state_profit IS NOT NULL
+ORDER BY sum_state_profit;
+
+##State discount count
+SELECT state,COUNT(discount)  as c_discount, SUM(discount) as sum_discount
+FROM `myproject-anisadwi-22122022.sample_superstore.superstore_data`
+WHERE discount>0
+GROUP BY state
+ORDER BY c_discount DESC;
