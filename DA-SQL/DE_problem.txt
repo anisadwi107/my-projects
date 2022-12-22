@@ -1,0 +1,11 @@
+-- Sample Superstore Data --
+This data is from kaggle
+The table has 9994 rows of data and 13 collumns
+##Column description:
+ ship_mode;segment;country;city;state;postal_code;region;category;sub_category;sales;quantity;discount;profit
+
+#For my own project:
+1. Find state at loss (sum profit is negative)
+2. Find state with profit (sum profit is positive
+3. Count how many discount in each states
+
